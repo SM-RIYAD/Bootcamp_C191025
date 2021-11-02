@@ -111,10 +111,22 @@ def info():
     id=st.text_input('Your Code')
     Submit=st.button(label='Search')
     if Submit:
-    	cursor.execute(f"select * from details where id='{id}'")
-    	table = cursor.fetchall()
-    st.write(table)
-                 
+       cursor.execute(f"select * from details where id='{id}'")
+       table = cursor.fetchall()
+       # st.write(table)
+       for i in table:
+            # st.text('Current Status:')
+            # st.info(i[0])     
+            st.write('Name:',i[1])
+                # st.text('Institution:')
+            st.write('ID: ',i[0])
+                # st.text('Registration date:')
+            st.write('Phone no: ',i[4])
+                # st.text('Current status:')
+            st.write('Email: ',i[5])
+            st.write('Institution',i[6])
+            st.write('Current status:',i[3])
+            st.write('Registration date:',i[2])
 def stat():
     id=st.text_input('Your Id')
     submit=st.button('Search',key='sub')
